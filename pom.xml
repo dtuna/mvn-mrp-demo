@@ -10,7 +10,7 @@
     <groupId>com.dt</groupId>
     <artifactId>mrp-demo</artifactId>
     <version>0.0.3-SNAPSHOT</version>
-    <name>0.0.1-SNAPSHOT</name>
+    <name>mrp-demo</name>
     <description>demo project for github maven release plugin</description>
 
     <properties>
