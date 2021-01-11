@@ -1,43 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.dt</groupId>
-	<artifactId>mrp-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>mrp-demo</name>
-	<description>demo project for github maven release plugin</description>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.dt</groupId>
+    <artifactId>mrp-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>mrp-demo</name>
+    <description>demo project for github maven release plugin</description>
 
-	<properties>
-		<java.version>11</java.version>
-	</properties>
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+        <project.scm.id>github</project.scm.id>
+        <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
+    </properties>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
+    <scm>
+        <developerConnection>scm:git:https://github.com/dtuna/mvn-mrp-demo.git</developerConnection>
+        <url>https://github.com/dtuna/mvn-mrp-demo</url>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>archiva.internal</id>
+            <name>Archiva artifact server for keeping the released artifacts.</name>
+            <url>http://localhost:8080/repository/internal</url>
+        </repository>
+        <snapshotRepository>
+            <id>archiva.snapshots</id>
+            <name>Archiva artifact server for keeping the snapshot artifacts.</name>
+            <url>http://localhost:8080/repository/snapshots</url>
+        </snapshotRepository>
+        <site>
+            <id>siteserver</id>
+            <name>Project's internal site server.</name>
+            <url>scp://localhost${user.home}/prj/html/projects/${project.artifactId}/${project.version}</url>
+        </site>
+    </distributionManagement>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.1.1</version>
+<!--                <reportSets>-->
+<!--                    <reportSet>-->
+<!--                        <reports>-->
+<!--                            <report>index</report>-->
+<!--                            <report>team</report>-->
+<!--                            <report>licenses</report>-->
+<!--                            <report>dependency-management</report>-->
+<!--                            <report>ci-management</report>-->
+<!--                            <report>dependency-convergence</report>-->
+<!--                            <report>plugin-management</report>-->
+<!--                            <report>plugins</report>-->
+<!--                            <report>issue-management</report>-->
+<!--                            <report>mailing-lists</report>-->
+<!--                            <report>scm</report>-->
+<!--                            <report>summary</report>-->
+<!--                        </reports>-->
+<!--                    </reportSet>-->
+<!--                </reportSets>-->
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
