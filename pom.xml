@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.dt</groupId>
     <artifactId>mrp-demo</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>0.0.1-SNAPSHOT</name>
     <description>demo project for github maven release plugin</description>
 
@@ -38,7 +38,7 @@
     <scm>
         <developerConnection>scm:git:https://github.com/dtuna/mvn-mrp-demo.git</developerConnection>
         <url>https://github.com/dtuna/mvn-mrp-demo</url>
-        <tag>HEAD</tag>
+        <tag>mrp-demo-0.0.2</tag>
     </scm>
 
     <build>
