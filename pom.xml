@@ -39,6 +39,7 @@
     <scm>
         <developerConnection>scm:git:https://github.com/dtuna/mvn-mrp-demo.git</developerConnection>
         <url>https://github.com/dtuna/mvn-mrp-demo</url>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
@@ -71,11 +72,11 @@
             <name>Archiva artifact server for keeping the snapshot artifacts.</name>
             <url>http://localhost:8080/repository/snapshots</url>
         </snapshotRepository>
-        <site>
-            <id>siteserver</id>
-            <name>Project's internal site server.</name>
-            <url>scp://localhost${user.home}/prj/html/projects/${project.artifactId}/${project.version}</url>
-        </site>
+<!--        <site>-->
+<!--            <id>siteserver</id>-->
+<!--            <name>Project's internal site server.</name>-->
+<!--            <url>scp://localhost${user.home}/prj/html/projects/${project.artifactId}/${project.version}</url>-->
+<!--        </site>-->
     </distributionManagement>
 
     <reporting>
